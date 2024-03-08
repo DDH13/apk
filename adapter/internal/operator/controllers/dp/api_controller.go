@@ -1753,7 +1753,7 @@ func addIndexes(ctx context.Context, mgr manager.Manager) error {
 			}
 			var grpcRoutes []string
 			if len(api.Spec.Production) > 0 {
-				for _, ref := range api.Spec.Production[0].HTTPRouteRefs {
+				for _, ref := range api.Spec.Production[0].RouteRefs {
 					if ref != "" {
 						grpcRoutes = append(grpcRoutes,
 							types.NamespacedName{
@@ -1764,7 +1764,7 @@ func addIndexes(ctx context.Context, mgr manager.Manager) error {
 				}
 			}
 			if len(api.Spec.Sandbox) > 0 {
-				for _, ref := range api.Spec.Sandbox[0].HTTPRouteRefs {
+				for _, ref := range api.Spec.Sandbox[0].RouteRefs {
 					if ref != "" {
 						grpcRoutes = append(grpcRoutes,
 							types.NamespacedName{
